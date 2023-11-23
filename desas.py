@@ -25,6 +25,38 @@ def btnClick(button):
         messagebox.showerror('Desas','Šeit kāds jau ir ieklikšķinājis')
     return
 
+def disableButtons():
+    btn1.config(state=DISABLED)
+    btn2.config(state=DISABLED)
+    btn3.config(state=DISABLED)
+    btn4.config(state=DISABLED)
+    btn5.config(state=DISABLED)
+    btn6.config(state=DISABLED)
+    btn7.config(state=DISABLED)
+    btn8.config(state=DISABLED)
+    btn9.config(state=DISABLED)
+    return 0
+
+def reset():
+    btn1.config(state=NORMAL)
+    btn2.config(state=NORMAL)
+    btn3.config(state=NORMAL)
+    btn4.config(state=NORMAL)
+    btn5.config(state=NORMAL)
+    btn6.config(state=NORMAL)
+    btn7.config(state=NORMAL)
+    btn8.config(state=NORMAL)
+    btn9.config(state=NORMAL)
+    btn1['text']=' '
+    btn2['text']=' '
+    btn3['text']=' '
+    btn4['text']=' '
+    btn5['text']=' '
+    btn6['text']=' '
+    btn7['text']=' '
+    btn8['text']=' '
+    btn9['text']=' '
+
 
 def checkWinner():
     global winner 
@@ -33,19 +65,28 @@ def checkWinner():
     btn4["text"]=="X"and btn5["text"]=="X"and btn6["text"]=="X" or
     btn7["text"]=="X"and btn8["text"]=="X"and btn9["text"]=="X" or
     btn1["text"]=="X"and btn5["text"]=="X"and btn9["text"]=="X" or
-    btn3["text"]=="X"and btn5["text"]=="X"and btn7["text"]=="X" ):
+    btn3["text"]=="X"and btn5["text"]=="X"and btn7["text"]=="X" or 
+    btn2["text"]=="X"and btn5["text"]=="X"and btn8["text"]=="X" or
+    btn1["text"]=="X"and btn4["text"]=="X"and btn7["text"]=="X" or
+    btn3["text"]=="X"and btn6["text"]=="X"and btn9["text"]=="X"):
         winner=True
+        disableButtons()
         messagebox.showinfo("Desas", "SpeletajsX ir uzvarējis")
 
     elif(btn1["text"]=="0" and btn2["text"]=="0" and btn3["text"]=="0" or
     btn4["text"]=="0"and btn5["text"]=="0"and btn6["text"]=="0" or
     btn7["text"]=="0"and btn8["text"]=="0"and btn9["text"]=="0" or
     btn1["text"]=="0"and btn5["text"]=="0"and btn9["text"]=="0" or
-    btn3["text"]=="0"and btn5["text"]=="0"and btn7["text"]=="0" ):
+    btn3["text"]=="0"and btn5["text"]=="0"and btn7["text"]=="0" or
+    btn2["text"]=="0"and btn5["text"]=="0"and btn8["text"]=="0"or 
+    btn1["text"]=="0"and btn4["text"]=="0"and btn7["text"]=="0" or 
+    btn3["text"]=="0"and btn6["text"]=="0"and btn9["text"]=="0"):
         winner=True
+        disableButtons()
         messagebox.showinfo("Desas", "Speletajs0 ir uzvarējis")
 
-   elif count==9 and winner==False:
+    elif count==9 and winner==False:
+        disableButtons
         messagebox.showinfo("desas", "Neizšķirts")
 
 
@@ -69,6 +110,13 @@ btn7.grid(row=2, column=0)
 btn8.grid(row=2, column=1)
 btn9.grid(row=2, column=2)
 
+galvenaIzvelne=Menu(mansLogs)
+mansLogs.config(menu=galvenaIzvelne)
+
+opcijas=Menu(galvenaIzvelne,tearoff=False)
+galvenaIzvelne.add_cascade(label="Opcijas", menu=opcijas)
+opcijas.add_command(label="jauna spēle", command=reset)
+opcijas.add_command(label="iziet", command=mansLogs.quit)
 
 
 mansLogs.mainloop()
