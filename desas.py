@@ -90,15 +90,15 @@ def checkWinner():
         messagebox.showinfo("desas", "Neizšķirts")
 
 
-btn1= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn1))
-btn2= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn2))
-btn3= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn3))
-btn4= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn4))
-btn5= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn5))
-btn6= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn6))
-btn7= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn7))
-btn8= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn8))
-btn9= Button(mansLogs, text="",width=7,height=3,font=('Helvica', 24), command=lambda:btnClick(btn9))
+btn1= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="antique white", command=lambda:btnClick(btn1))
+btn2= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="light pink", command=lambda:btnClick(btn2))
+btn3= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="antique white", command=lambda:btnClick(btn3))
+btn4= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="light pink", command=lambda:btnClick(btn4))
+btn5= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="antique white", command=lambda:btnClick(btn5))
+btn6= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="light pink", command=lambda:btnClick(btn6))
+btn7= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="antique white", command=lambda:btnClick(btn7))
+btn8= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="light pink", command=lambda:btnClick(btn8))
+btn9= Button(mansLogs, text="",width=7,height=3,font=('Courier', 24), bg="antique white", command=lambda:btnClick(btn9))
 
 btn1.grid(row=0, column=0)
 btn2.grid(row=0, column=1)
@@ -117,6 +117,24 @@ opcijas=Menu(galvenaIzvelne,tearoff=False)
 galvenaIzvelne.add_cascade(label="Opcijas", menu=opcijas)
 opcijas.add_command(label="jauna spēle", command=reset)
 opcijas.add_command(label="iziet", command=mansLogs.quit)
+
+def Infol():
+    jaunsLogs=Toplevel(mansLogs)
+    jaunsLogs.title("informācija par programmu")
+    jaunsLogs.geometry("280x160")
+    apraksts=Label(jaunsLogs, text="SPĒLES NOTEIKUMI")
+    apraksts.grid(row=0, column=0)
+    apraksts=Label(jaunsLogs, text="Spēlē piedalās 2 spēlētāji,")
+    apraksts.grid(row=1, column=0)
+    apraksts=Label(jaunsLogs, text="Spēlētāji viens pēc otra spiež pa vienam lodziņu")
+    apraksts.grid(row=2, column=0)
+    apraksts=Label(jaunsLogs, text="Spēlēs mērķis: dabūt 3 vienādus simbolus pēc kārtas")
+    apraksts.grid(row=3, column=0)
+    return 0
+
+
+Info=Menu(galvenaIzvelne,tearoff=False)
+galvenaIzvelne.add_cascade(label="Par spēli", command=Infol)
 
 
 mansLogs.mainloop()
