@@ -38,6 +38,9 @@ def disableButtons():
     return 0
 
 def reset():
+    global count, speletajsX
+    count=0
+    speletajsX=True
     btn1.config(state=NORMAL)
     btn2.config(state=NORMAL)
     btn3.config(state=NORMAL)
@@ -47,16 +50,16 @@ def reset():
     btn7.config(state=NORMAL)
     btn8.config(state=NORMAL)
     btn9.config(state=NORMAL)
-    btn1['text']=' '
-    btn2['text']=' '
-    btn3['text']=' '
-    btn4['text']=' '
-    btn5['text']=' '
-    btn6['text']=' '
-    btn7['text']=' '
-    btn8['text']=' '
-    btn9['text']=' '
-    count=0
+    btn1['text']=''
+    btn2['text']=''
+    btn3['text']=''
+    btn4['text']=''
+    btn5['text']=''
+    btn6['text']=''
+    btn7['text']=''
+    btn8['text']=''
+    btn9['text']=''
+    
 
 
 def checkWinner():
@@ -87,7 +90,7 @@ def checkWinner():
         messagebox.showinfo("Desas", "Speletajs0 ir uzvarējis")
 
     elif count==9 and winner==False:
-        disableButtons
+        disableButtons()
         messagebox.showinfo("desas", "Neizšķirts")
 
 
